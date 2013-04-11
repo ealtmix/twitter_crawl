@@ -18,6 +18,9 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'therubyracer'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'ZenTest'
 end
 
 gem 'jquery-rails'
