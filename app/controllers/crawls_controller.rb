@@ -1,11 +1,11 @@
 class CrawlsController < ApplicationController
 
   def show
-  
+ 
   end
 
   def index
-    
+    @tweet = Crawls.next_tweet
   end
 
   def new
