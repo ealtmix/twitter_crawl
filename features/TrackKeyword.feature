@@ -4,8 +4,8 @@ Feature: Track a keyword
   So that I can track a keyword's use for a given area
   I want to be able to add a keyword to be tracked for the area I am looking at
 
-Scenario: Track a keyword trending on Twitter (Declarative)
+Scenario: Track two keywords trending on Twitter (Declarative)
 
- When I search for "#happy"
+ When I search for "#happy" and "#sad"
  And I am on the TwitterCrawler home page
- Then I should see all tweets with "#happy" in a given area
+ Then I all tweets shown should contain either "#happy" or "#sad"
