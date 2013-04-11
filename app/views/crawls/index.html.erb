@@ -1,5 +1,8 @@
-<h1>Welcome to Twitter Crawl!</h1>
-<h3>Welcome! This site allows you to view people tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
+<p>Note: The following is the "params" hash, just a test for development purposes, to make sure that the form submission data is successfully received. You can fill out the form, and click the "Submit" button to see the params.</p>
+<%= params.inspect %>
+<div id="content">
+<h1 class="center">Welcome to Twitter Crawl!</h1>
+<h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
 <br />
 <div id="mapDiv">
 <!-- Map goes here -->	
@@ -7,23 +10,26 @@
 </div>
 <br />
 <br />
-<form>
+<form action="/crawls" method="get">
 	<table border="0" cellpadding="10">
 		<tr>
 			<td>Which area are you interested in?</td>
-			<td></td>	
+			<td><input type="textbox" name="area" id="area" /></td>	
 		</tr>
 		<tr>
 			<td>What keywords are you looking for<br />from tweets?</td>
-			<td></td>	
+			<td><input type="textbox" name="keywords" id="keywords" /></td>	
 		</tr>
 		<tr>
-			<td>What keyword would you like to<br />track from the area you<br />select?</td>
-			<td></td>	
+			<td>What word would you like to<br />track from the area you<br />select?</td>
+			<td><input type="textbox" name="word_to_track" id="word_to_track" /></td>	
 		</tr>
 		<tr>
-			<td>Would you like to remove the<br />keyword that you are tracking?</td>
-			<td></td>	
+			<td>Would you like to remove the<br />word that you are tracking?</td>
+			<td>
+				<input type="radio" name="remove_tracking" value="yes">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="remove_tracking" value="no">No
+			</td>	
 		</tr>
 	</table>
 	
@@ -32,26 +38,42 @@
 	<table border="0" cellpadding="10">
 		<tr>
 			<td>Happy</td>
-			<td></td>
+			<td>
+				<input type="radio" name="happy_color" value="green">Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="happy_color" value="yellow">Yellow &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="happy_color" value="pink">Pink 
+			</td>
 		</tr>	
 		<tr>
 			<td>Sad</td>
-			<td></td>
+			<td>
+				<input type="radio" name="sad_color" value="purple">Purple &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sad_color" value="gray">Gray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sad_color" value="blue">Blue 
+			</td>
 		</tr>
 		<tr>
 			<td>Neutral</td>
-			<td></td>
+			<td>
+				<input type="radio" name="neutral_color" value="gray">Gray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="neutral_color" value="green">Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="neutral_color" value="yellow">Yellow
+			</td>
 		</tr>
 	</table>
+	<br />
+	<input type="submit" value="Submit" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="reset" value="Reset" />
 </form>
 <br />
 <br />
 <h3>Simple Statistics</h3>
 
-<p>There are <%=  %> tweets in the area you selected.</p>
+<p>There are <%= "####" %> tweets in the area you selected.</p>
 <br />
 <p>The following are the top keywords among the tweets from the area you selected.</p>
 <%=  %>
 <br />
-<p><%=  %>tweets contain the keyword that you are tracking from the area you selected.</p>
-<hr />
+<p><%= "####" %>tweets contain the keyword that you are tracking from the area you selected.</p>
+<br />
+</div>
