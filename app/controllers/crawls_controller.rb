@@ -27,3 +27,4 @@ class CrawlsController < ApplicationController
   def destroy
 
   end
+end
