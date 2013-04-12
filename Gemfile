@@ -5,13 +5,6 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'devise'
-gem 'omniauth-twitter'
-gem 'twitter'
-gem 'tweetstream'
-gem 'daemons'
-gem 'yajl-ruby'
 # Gems used only for assets and not required
 # in production environments by default.
 group :development, :test do
@@ -23,6 +16,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'ZenTest'
+gem 'devise'
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'tweetstream'
+gem 'daemons'
+gem 'yajl-ruby'
+
 end
 
 group :assets do
