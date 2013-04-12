@@ -6,6 +6,6 @@ Feature: Track a keyword
 
 Scenario: Track two keywords trending on Twitter
 
- Given I am on the TwitterCrawler home page
- When I search for "#happy" and "#sad"
- Then all tweets shown should contain either "#happy" or "#sad"
+  Given I am on the TwitterCrawler home page
+  When I search for "#happy"
+  Then all tweets shown should contain "#happy"

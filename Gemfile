@@ -12,19 +12,24 @@ gem 'twitter'
 gem 'tweetstream'
 gem 'daemons'
 gem 'yajl-ruby'
-gem 'jquery-rails'
-gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 # Gems used only for assets and not required
 # in production environments by default.
+group :development, :test do
+  gem 'sqlite3'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'ZenTest'
+end
+
 group :assets do
   gem 'sass-rails', "~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'therubyracer'
-  gem 'capybara', "~> 2.0.3"
-  gem 'rspec-rails'
-  gem 'simplecov'
-  gem 'ZenTest'
 end
 
 gem 'jquery-rails'
@@ -43,4 +48,8 @@ group :test do
   gem 'turn', :require => false
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+end
+
+group :production do
+  gem 'pg'
 end

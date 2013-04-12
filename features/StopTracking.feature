@@ -6,7 +6,7 @@ Feature: Stop tracking a keyword
 
 Scenario: Stop tracking a keyword
 
- Given I am tracking "#happy" and "#sad"
+ Given I am tracking "#happy"
  And I am on the TwitterCrawler home page
  When I remove "#happy" from the keywords
  Then I should see not see "#happy" displayed
