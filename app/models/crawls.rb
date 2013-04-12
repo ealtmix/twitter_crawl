@@ -1,6 +1,6 @@
 class Crawls < ActiveRecord::Base
   require 'tweetstream'
-  @current_tweet_id = 231;
+  @current_tweet_id = 209#Crawls.order("id").first.id
   @keyword = "happy"
 
   def self.change_key_word(word1)
@@ -25,7 +25,7 @@ class Crawls < ActiveRecord::Base
 	  end
 	  puts 'aaaaa yea'
 	  thread1 = Thread.new{
-	  client1.track("happy") do |status|
+	  client1.track("and") do |status|
 	    if ! status.geo.nil? then
 	      puts "+++++++++++++++++++++++++++++" 
 	      puts status.text
@@ -38,7 +38,7 @@ class Crawls < ActiveRecord::Base
 	  end
 	  }
 	  thread2 = Thread.new{
-	  client2.track("sad") do |status|
+	  client2.track("or") do |status|
 	    if ! status.geo.nil? then
 	      puts "============================="
 	      puts status.text
@@ -55,10 +55,9 @@ class Crawls < ActiveRecord::Base
 	end 
 
   def self.next_tweet
-    tweet_var = Crawls.order("created_at DESC").first!
-    
+    tweet_var = Crawls.order("id").first
     tweet_string = tweet_var.tweet
-    @cur_tweet_id = tweet_var.id
+    @cur_tweet_id = tweet_var.id+1
     Crawls.destroy(tweet_var)
     tweet_string
   end

@@ -6,13 +6,13 @@ class CrawlsController < ApplicationController
   
   def index
     @tweet = Crawls.next_tweet
-    respond_to do |format|
-     format.html
-    end
-#@last_tweet.push @tweet
   end
 
-  def tweet_update
+  def _tweet_partial
+    @tweet = Crawls.next_tweet
+    respond_to do |format|
+      format.html
+    end
   end
 
   def new
