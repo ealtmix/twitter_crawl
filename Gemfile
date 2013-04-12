@@ -16,12 +16,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'ZenTest'
-gem 'devise'
-gem 'omniauth-twitter'
-gem 'twitter'
-gem 'tweetstream'
-gem 'daemons'
-gem 'yajl-ruby'
 
 end
 
@@ -30,6 +24,13 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'therubyracer'
+  gem 'devise'
+  gem 'omniauth-twitter'
+  gem 'twitter'
+  gem 'tweetstream'
+  gem 'daemons'
+  gem 'yajl-ruby'
+
 end
 
 gem 'jquery-rails'
