@@ -30,10 +30,9 @@ group :assets do
   gem 'tweetstream'
   gem 'daemons'
   gem 'yajl-ruby'
-
+  gem 'jquery-rails'
 end
 
-gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
