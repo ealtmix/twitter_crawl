@@ -10,7 +10,8 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'tweetstream'
-
+gem 'daemons'
+gem 'yajl-ruby'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

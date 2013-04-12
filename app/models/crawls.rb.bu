@@ -1,0 +1,38 @@
+class Crawls < ActiveRecord::Base
+require 'tweetstream'
+
+def self.crawl(word1, word2)
+     TweetStream.configure do |config|
+       config.consumer_key       = 'vodV1JZIlq0GjXz5I2Wg'
+       config.consumer_secret    = 'Z3wKtYy0kjiKhbPRF1PbDWylDFoOr6HarMR5XqxzWg'
+       config.oauth_token        = '13368366264VqaDyXbic4h1mf6R6KDmnSg6ioKEPbBed5StJQ'
+       config.oauth_token_secret = 'YxXHb7vC1MTXHw3A1hKCTThSmmDBdAISCYTuRukSaA'
+       config.auth_method        = :oauth
+     end
+     
+     client = TweetStream::Client.new
+     
+     
+     client.on_error do |message|
+       puts message
+     end
+     thread1 = Thread.new{
+       client.locations(74.277191,40.498624,73.505402,41.045664) do |status|
+           puts "=================="
+           puts "#{status.text}"
+           puts "#{status.user.location}"
+           puts "=================="
+         end
+         }
+         thread2 = Thread.new{
+           client.locations(74.277191,40.498624,73.505402,41.045664) do |status|
+               puts "++++++++++++++++++"
+               puts "#{status.text}"
+               puts "#{status.user.location}"
+               puts "++++++++++++++++++"
+             end
+             }
+             thread1.join
+             thread2.join
+        end 
+end

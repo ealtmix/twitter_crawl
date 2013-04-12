@@ -168,6 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.0)
+  daemons
   devise
   jquery-rails
   omniauth-twitter
@@ -179,3 +180,4 @@ DEPENDENCIES
   tweetstream
   twitter
   uglifier
+  yajl-ruby
