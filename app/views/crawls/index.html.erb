@@ -1,9 +1,10 @@
+<%= javascript_include_tag 'jquery-1.7.1', 'tweet_query.js'%>
 <p>Note: The following is the "params" hash, just a test for development purposes, to make sure that the form submission data is successfully received. You can fill out the form, and click the "Submit" button to see the params.</p>
 <%= params.inspect %>
 <div id="content">
 <h1 class="center">Welcome to Twitter Crawl!</h1>
 <h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
-<br />
+<h3 id="tweety"> <%= if ! @tweet.nil? then @tweet end%> </h3>
 <div id="mapDiv">
 <!-- Map goes here -->	
 

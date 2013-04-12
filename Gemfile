@@ -12,6 +12,8 @@ gem 'twitter'
 gem 'tweetstream'
 gem 'daemons'
 gem 'yajl-ruby'
+gem 'jquery-rails'
+gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
