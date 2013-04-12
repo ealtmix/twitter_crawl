@@ -5,3 +5,32 @@
  *= require_self
  *= require_tree . 
 */
+
+
+body{
+	background-color:orange;
+	font-family:tahoma, sans-serif;
+	color:black;
+}
+
+.center{
+	text-align:center;	
+}
+
+#content{
+	margin: 100px 120px;
+	background-color:black;
+	color:rgb(96,215,255);
+	padding:30px;
+	border:12px dotted rgb(96,215,255);
+	border-radius:20px;
+}
+
+#mapDiv{
+	width:700px;
+	height:450px;
+	background-color:aliceblue;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:20px;
+}
