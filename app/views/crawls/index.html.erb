@@ -4,7 +4,7 @@
 <div id="content">
 <h1 class="center">Welcome to Twitter Crawl!</h1>
 <h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
-<h3 id="tweety"><%= @tweet %> </h3>
+<h3 id="tweety"><%= if !@tweet.nil? then @tweet end %> </h3>
 <div id="mapDiv">
 <!-- Map goes here -->	
 
