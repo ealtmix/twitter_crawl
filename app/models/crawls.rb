@@ -1,6 +1,6 @@
 class Crawls < ActiveRecord::Base
   require 'tweetstream'
-  
+  @current_tweet_id = 231;
   @keyword = "happy"
 
   def self.change_key_word(word1)
@@ -55,7 +55,20 @@ class Crawls < ActiveRecord::Base
 	end 
 
   def self.next_tweet
-    puts Crawls.order("created_at").first.tweet
+    tweet_var = Crawls.order("created_at DESC").first!
+    
+    tweet_string = tweet_var.tweet
+    @cur_tweet_id = tweet_var.id
+    Crawls.destroy(tweet_var)
+    tweet_string
   end
-
+  def self.next_tweet_t
+#tweet = Crawls.order("created_at").first!
+#   if(@cur_tweet_id != 0) then
+      tweet = Crawls.find(231)
+#   end
+    tweet_string = tweet.tweet
+    #Crawls.destroy(tweet)
+    puts tweet_string 
+  end
 end
