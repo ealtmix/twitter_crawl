@@ -61,13 +61,4 @@ class Crawls < ActiveRecord::Base
     Crawls.destroy(tweet_var)
     tweet_string
   end
-  def self.next_tweet_t
-#tweet = Crawls.order("created_at").first!
-#   if(@cur_tweet_id != 0) then
-      tweet = Crawls.find(231)
-#   end
-    tweet_string = tweet.tweet
-    #Crawls.destroy(tweet)
-    puts tweet_string 
-  end
 end
