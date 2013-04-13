@@ -1,18 +1,24 @@
+Given /^the following tweets are displayed on TwitterCrawler:$/ do |tweet_table|
+  tweet_table.hashes.each do |tweet|
+    Crawls.create!(tweet)
+  end
+end
+
 Given /^I am on the TwitterCrawler home page$/ do
-  visit("/index")
+  visit crawls_path
 end
 
 
 When /^I search for "(.*?)"$/ do |word1|
-  fill_in 'keywords', :with => word1
+  fill_in 'word_to_track', :with => word1
   click_button 'Submit'
 end
 
-Then /^all tweets shown should contain "(.*?)"$/ do |word1| 
+Then /^all tweets shown should contain "(.*?)"$/ do |word| 
   result=false
-  all("tr").each do |tr|
-    if tr.has_content?(word1)
-      result = true
+  all("h3").each do |h3|
+    if h3.has_content?(word)
+      result=true
       break
     end
   end  
@@ -22,7 +28,7 @@ end
 
 
 Given /^I am tracking "(.*?)"$/ do |word1|
-  fill_in 'keywords', :with => word1
+  fill_in 'word_to_track', :with => word1
   click_button 'Submit'
 end
 
