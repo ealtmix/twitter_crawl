@@ -1,12 +1,47 @@
 require 'spec_helper'
+require 'tweetstream'
 
 describe CrawlsController do
   fake_tweet = Crawls.create(:tweet => 'tweet', :lat => 10, :long => 10, :user => 'test')
-    describe 'Viewing Tweets:' do
-       it 'should call the next_tweet method' do
-          Crawls.should_receive(:next_tweet)
-          get :index
-       end
+  
+  describe 'Viewing Tweets:' do
+    it 'should call the next_tweet method' do
+      Crawls.should_receive(:next_tweet)
+      get :index
+    end
+  end
+
+  describe 'Partial Tweets:' do
+    it 'should respond to partial tweets' do
+      get :_tweet_partial
+    end
+  end
+
+=begin  
+  describe 'Changing keyword:' do
+    it 'should change the keyword' do
+      mock = mock('Crawls')
+      mock.should_receive(:change_key_word, :word1 =>'happy')
+      get :index
+      
+      #mock.stub(:change_key_word)
+      #mock.should_receive(:change_key_word).with(:word1 => 'sad')
+      #Crawls.should_receive(:change_key_word).with(:keyword => 'happy')
+    end
+  end
+=end
+
+  describe 'Farming tweets:' do
+    it 'should farm certain tweets for Twitter' do
+      mock = mock('Crawls')
+      #mock.should_receive(:tweet_farmer)
+      #mock.stub!(:tweet_farmer).and_return(:tweet => 'happy', :user => 'SELT', :lat => 10, :long => 10)
+    end
+  end
+
+end
+
+
 #        @tweet = mock(Crawls)
 #        @tweet.stub!(:tweet_farmer).and_return("happy")
         
@@ -25,7 +60,5 @@ describe CrawlsController do
 #            answer = @tweet.tweet_farmer
 #            answer.should match("happy")
 #        end
-    end
-end
 
 
