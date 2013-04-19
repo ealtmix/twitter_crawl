@@ -17,15 +17,39 @@ class Crawls < ActiveRecord::Base
 	  end
 	  client1 = TweetStream::Client.new
 	  client2 = TweetStream::Client.new
+	  client3 = TweetStream::Client.new
+	  client4 = TweetStream::Client.new
+	  client5 = TweetStream::Client.new
+	  client6 = TweetStream::Client.new
+	  client7 = TweetStream::Client.new
+	  client8 = TweetStream::Client.new
 	  client1.on_error do |message|
 	    puts message
 	  end
 	  client2.on_error do |message|
 	    puts message
 	  end
+    client3.on_error do |message|
+	    puts message
+	  end
+    client4.on_error do |message|
+	    puts message
+	  end
+    client5.on_error do |message|
+	    puts message
+	  end
+    client6.on_error do |message|
+	    puts message
+	  end
+    client7.on_error do |message|
+	    puts message
+	  end
+    client8.on_error do |message|
+	    puts message
+	  end
 	  puts 'aaaaa yea'
-	  thread1 = Thread.new{
-	  client1.track("and") do |status|
+	  thread1 = Thread.new{ #New York, New York
+	  client1.locations(41.553811,-88.210602,40.957086,-73.664703) do |status|
 	    if ! status.geo.nil? then
 	      puts "+++++++++++++++++++++++++++++" 
 	      puts status.text
@@ -37,8 +61,8 @@ class Crawls < ActiveRecord::Base
 	    end
 	  end
 	  }
-	  thread2 = Thread.new{
-	  client2.track("or") do |status|
+	  thread2 = Thread.new{ #San Francisco, California
+	  client2.locations(37.302460,-123.042755,38.195022,-121.828766) do |status|
 	    if ! status.geo.nil? then
 	      puts "============================="
 	      puts status.text
@@ -50,8 +74,92 @@ class Crawls < ActiveRecord::Base
 	    end
 	  end
 	  }
-	  thread1.join
-	  thread2.join
+    thread3 = Thread.new{ #Chicago, Illinois
+	  client3.locations(41.553811,-88.210602,42.259016,87.400360) do |status|
+	    if ! status.geo.nil? then
+	      puts "============================="
+	      puts status.text
+	      puts status.user.user_name
+        puts status.geo.lat
+        puts status.geo.long
+	      puts "============================="
+        Crawls.create(:tweet => status.text, :user => status.user.user_name, :lat => status.geo.lat, :long => status.geo.long)
+	    end
+	  end
+	  }
+    thread4 = Thread.new{ # Atlanta, Georgia
+	  client4.locations(33.605470,-84.541855,34.018518,-84.092789) do |status|
+	    if ! status.geo.nil? then
+	      puts "============================="
+	      puts status.text
+	      puts status.user.user_name
+        puts status.geo.lat
+        puts status.geo.long
+	      puts "============================="
+        Crawls.create(:tweet => status.text, :user => status.user.user_name, :lat => status.geo.lat, :long => status.geo.long)
+	    end
+	  end
+	  }
+    thread5 = Thread.new{ # Denver, Colorado
+	  client5.locations(38.548165,-107.385864,40.497092,103.705444) do |status|
+	    if ! status.geo.nil? then
+	      puts "============================="
+	      puts status.text
+	      puts status.user.user_name
+        puts status.geo.lat
+        puts status.geo.long
+	      puts "============================="
+        Crawls.create(:tweet => status.text, :user => status.user.user_name, :lat => status.geo.lat, :long => status.geo.long)
+	    end
+	  end
+	  }
+    thread6 = Thread.new{ # Seattle, WA and Vancouver, BC, CA
+	  client6.locations(47.129951,-125.529785,49.696062,-120.563965) do |status|
+	    if ! status.geo.nil? then
+	      puts "============================="
+	      puts status.text
+	      puts status.user.user_name
+        puts status.geo.lat
+        puts status.geo.long
+	      puts "============================="
+        Crawls.create(:tweet => status.text, :user => status.user.user_name, :lat => status.geo.lat, :long => status.geo.long)
+	    end
+	  end
+	  }
+    thread7 = Thread.new{ # Dallas, Austin and Houston, Texas
+	  client7.locations(28.883160,-99.777832,33.504759,-94.240723) do |status|
+	    if ! status.geo.nil? then
+	      puts "============================="
+	      puts status.text
+	      puts status.user.user_name
+        puts status.geo.lat
+        puts status.geo.long
+	      puts "============================="
+        Crawls.create(:tweet => status.text, :user => status.user.user_name, :lat => status.geo.lat, :long => status.geo.long)
+	    end
+	  end
+	  }
+    thread8 = Thread.new{ # Florida... as a whole
+	  client8.locations(24.447150,-87.121582,30.939924,-79.167480) do |status|
+	    if ! status.geo.nil? then
+	      puts "============================="
+	      puts status.text
+	      puts status.user.user_name
+        puts status.geo.lat
+        puts status.geo.long
+	      puts "============================="
+        Crawls.create(:tweet => status.text, :user => status.user.user_name, :lat => status.geo.lat, :long => status.geo.long)
+	    end
+	  end
+	  }
+	  thread1.join#NYNY
+	  thread2.join#SanFran
+    thread3.join#ChiTown
+    thread4.join#Atlanta
+    thread5.join#Denver
+    thread6.join#Seattle/Vancouver
+    thread7.join#Dallas/Austin/Houston
+    thread8.join#Florida
 	end 
 
   def self.next_tweet
