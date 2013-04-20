@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412003137) do
+ActiveRecord::Schema.define(:version => 20130419164949) do
 
   create_table "crawls", :force => true do |t|
     t.text     "tweet"
@@ -21,5 +21,36 @@ ActiveRecord::Schema.define(:version => 20130412003137) do
     t.float    "lat"
     t.float    "long"
   end
-
+  create_table "NewYork" do |t|
+    t.text :tweet
+    t.timestamps
+  end
+  create_table "SanFran" do |t|
+    t.text :tweet
+    t.timestamps
+  end
+  create_table "ChiTown" do |t|
+    t.text :tweet
+    t.timestamps
+  end
+  create_table "Atlanta" do |t|
+    t.text :tweet
+    t.timestamps
+  end
+  create_table "Denver" do |t| 
+    t.text :tweet
+    t.timestamps
+  end
+  create_table "Sea_Van" do |t|
+    t.text :tweet
+    t.timestamps
+  end
+  create_table "Texas" do |t|
+    t.text :tweet
+    t.timestamps
+  end
+  create_table "Florida" do |t|
+    t.text :tweet
+    t.timestamps
+  end
 end
