@@ -59,7 +59,5 @@ end
 #            answer = @tweet.tweet_farmer
 #            answer.should match("happy")
 #        end
-  end
-end
 
 
