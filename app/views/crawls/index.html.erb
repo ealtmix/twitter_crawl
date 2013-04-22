@@ -26,21 +26,20 @@
 		</tr>
 		-->
 		<tr>
-			<!-- these keywords are used to filter tweets, only tweets with at least one of the keywords will be displayed -->
-			<td>What keywords are you looking for<br />from tweets?</td>
-			<td><input type="textbox" name="keywords" id="keywords" /></td>	
-		</tr>
-		<tr>
-			<!-- the user can enter one word to "track", and we will find out how many tweets contain this word from an area-->
-			<td>What word would you like to<br />track from the area you<br />select?</td>
+			<!-- The user can enter a word to "track", and this word will be used to filter tweets.
+				Only tweets with this word will be shown,
+				and we will find out how many tweets contain this word from selected areas-->
+			<td>Word to track</td>
 			<td><input type="textbox" name="word_to_track" id="word_to_track" /></td>	
 		</tr>
 		<tr>
-			<!-- if the user chooses to remove the tracked word, then we will not have to find out how many tweets contain the word -->
+			<!-- if the user chooses to remove the tracked word
+				then we will show tweets that do not contain this word,
+				and we will not need to find out how many tweets contain this word -->
 			<td>Would you like to remove the<br />word that you are tracking?</td>
 			<td>
-				<input type="radio" name="remove_tracking" value="yes">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="remove_tracking" value="no">No
+				<input type="radio" name="remove_tracking" value="yes" id="remove_tracking_yes">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="remove_tracking" value="no" id="remove_tracking_no">No
 			</td>	
 		</tr>
 	</table>

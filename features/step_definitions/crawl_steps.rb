@@ -37,13 +37,14 @@ end
 #end
 
 When /^I remove "(.?)" from the keywords$/ do |word|
-  fill_in 'remove_word', :with => word
-  click_button 'Remove'
+  fill_in 'word_to_track', :with => word  #to remove the tracked word, first enter the word in the 'word to track' field
+  choose 'remove_tracking_yes' #then select the 'yes' radio button
+  click_button 'Submit'    # finally submit the form
 end
 
 Then /^I should not see "(.?)" displayed$/ do |word|
   result=true
-  all("tr").each do |tr|
+  all("h3").each do |tr|
     if tr.has_content?(word)
       result = false
       break
@@ -54,7 +55,7 @@ end
   
 But /^I should see "(.?)" displayed$/ do |word|
   result=false
-  all("tr").each do |tr|
+  all("h3").each do |tr|
     if tr.has_content?(word)
       result = true
       break
