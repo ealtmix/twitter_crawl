@@ -13,19 +13,30 @@
 <br />
 <form action="/crawls" method="get">
 	<table border="0" cellpadding="10">
+		
+		<!--
+			we will default the locations to some certain areas, for exmaple 5 specific cities
+			and will not let the user change locations
+			so the part below is commented out
+			however, the user can click on any of the "pins" on the map, so that the "Simple Statistics" part will
+			display statistics from that area
 		<tr>
 			<td>Which area are you interested in?</td>
 			<td><input type="textbox" name="area" id="area" /></td>	
 		</tr>
+		-->
 		<tr>
+			<!-- these keywords are used to filter tweets, only tweets with at least one of the keywords will be displayed -->
 			<td>What keywords are you looking for<br />from tweets?</td>
 			<td><input type="textbox" name="keywords" id="keywords" /></td>	
 		</tr>
 		<tr>
+			<!-- the user can enter one word to "track", and we will find out how many tweets contain this word from an area-->
 			<td>What word would you like to<br />track from the area you<br />select?</td>
 			<td><input type="textbox" name="word_to_track" id="word_to_track" /></td>	
 		</tr>
 		<tr>
+			<!-- if the user chooses to remove the tracked word, then we will not have to find out how many tweets contain the word -->
 			<td>Would you like to remove the<br />word that you are tracking?</td>
 			<td>
 				<input type="radio" name="remove_tracking" value="yes">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -38,6 +49,8 @@
 	<p>What colors would you like to be associated with the following general emotions?</p>
 	<table border="0" cellpadding="10">
 		<tr>
+			<!-- if there are more tweets expressing happiness than sadness in a specific area, then
+				the pin will be colored with a "happy color" -->
 			<td>Happy</td>
 			<td>
 				<input type="radio" name="happy_color" value="green">Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,6 +59,8 @@
 			</td>
 		</tr>	
 		<tr>
+			<!-- if there are more tweets expressing sadness than happiness in a specific area, then
+				the pin will be colored with a "sad color" -->
 			<td>Sad</td>
 			<td>
 				<input type="radio" name="sad_color" value="purple">Purple &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -54,6 +69,8 @@
 			</td>
 		</tr>
 		<tr>
+			<!-- if equal numbers of tweets express happiness and sadness in a specific area, then 
+				the pin will be colored with a "neutral color" -->
 			<td>Neutral</td>
 			<td>
 				<input type="radio" name="neutral_color" value="gray">Gray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -68,6 +85,9 @@
 </form>
 <br />
 <br />
+<!--  -->
+<!-- if the user clicks on one of the "pins" on the map, then the following section will display
+	statistics from that area marked by the pin -->
 <h3>Simple Statistics</h3>
 
 <p>There are <%= "####" %> tweets in the area you selected.</p>
