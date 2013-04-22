@@ -29,6 +29,7 @@ end
 
 Given /^I am tracking "(.*?)"$/ do |word1|
   fill_in 'word_to_track', :with => word1
+  choose 'remove_tracking_no' 
   click_button 'Submit'
 end
 
