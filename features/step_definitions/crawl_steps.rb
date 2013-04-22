@@ -26,7 +26,6 @@ Then /^all tweets shown should contain "(.*?)"$/ do |word|
 end
 
 
-
 Given /^I am tracking "(.*?)"$/ do |word1|
   fill_in 'word_to_track', :with => word1
   choose 'remove_tracking_no' 
@@ -64,4 +63,17 @@ But /^I should see "(.?)" displayed$/ do |word|
   end  
   assert result
 end
+
+When /^I choose "(.?)" for "(.?)" pins$/ do |color, emotion|
+  choose(emotion + "_color_" + color)
+end
+
+Then /^I should see the pin at location "(.?)" is "(.?)"$/ do |pin_location, color|
+  lat = pin_location.split(',')[0].to_f
+  long = pin_location.split(',')[1].to_f
+  
+end
+
+
+
 
