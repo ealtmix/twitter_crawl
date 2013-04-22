@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419164949) do
+ActiveRecord::Schema.define(:version => 20130420200628) do
 
   create_table "Atlanta", :force => true do |t|
     t.text     "tweet"

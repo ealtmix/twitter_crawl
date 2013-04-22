@@ -9,7 +9,7 @@ class Crawls < ActiveRecord::Base
 
   def self.tweet_pruner
 
-    old_tweet = Crawls.select 
+#old_tweet = Crawls.select 
 
   end
 
@@ -53,48 +53,56 @@ class Crawls < ActiveRecord::Base
     client8.on_error do |message|
 	    puts message
 	  end
-	  thread1 = Thread.new{ #New York, New York
-	  client1.locations(41.553811,-88.210602,40.957086,-73.664703) do |status|
-      Crawls.create :NewYork, :tweet => status.text
+    thread1 = Thread.new{ #New York, New York
+	  client1.locations(-88.210602,40.553811,-73.664703,41.957086) do |status|
+      puts "NYNY:"+status.text
+      Crawls.create :region => "NewYork", :tweet => status.text
 	  end
-	  }
-	  thread2 = Thread.new{ #San Francisco, California
-	  client2.locations(37.302460,-123.042755,38.195022,-121.828766) do |status|
-      Crawls.create :SanFran, :tweet => status.text
+ 	  }
+ 	  thread2 = Thread.new{ #San Francisco, California
+	  client2.locations(-123.042755,37.302460,-121.828766,38.195022) do |status|
+      puts "SANFRAN:"+status.text
+      Crawls.create :region => "SanFran", :tweet => status.text
 	  end
-	  }
+ 	  }
     thread3 = Thread.new{ #Chicago, Illinois
-	  client3.locations(41.553811,-88.210602,42.259016,87.400360) do |status|
-      Crawls.create :ChiTown, :tweet => status.text
+	  client3.locations(-88.210602,41.553811,-87.400360,42.259016) do |status|
+      puts "CHITOWN:"+status.text
+      Crawls.create :region => "ChiTown", :tweet => status.text
 	  end
-	  }
+ 	  }
     thread4 = Thread.new{ # Atlanta, Georgia
-	  client4.locations(33.605470,-84.541855,34.018518,-84.092789) do |status|
-      Crawls.create :Atlanta, :tweet => status.text
+	  client4.locations(-84.541855,33.605470,-84.092789,34.018518) do |status|
+      puts "ATLANTA:"+status.text
+      Crawls.create :region => "Atlanta", :tweet => status.text
 	  end
-	  }
+ 	  }
     thread5 = Thread.new{ # Denver, Colorado
-	  client5.locations(38.548165,-107.385864,40.497092,103.705444) do |status|
-      Crawls.create :Denver, :tweet => status.text
+	  client5.locations(-107.385864,38.548165,-103.705444,40.497092) do |status|
+      puts "DENVER:"+status.text
+      Crawls.create :region => "Denver", :tweet => status.text
 	  end
-	  }
+ 	  }
     thread6 = Thread.new{ # Seattle, WA and Vancouver, BC, CA
-	  client6.locations(47.129951,-125.529785,49.696062,-120.563965) do |status|
-      Crawls.create :Sea_Van, :tweet => status.text
+	  client6.locations(-125.529785,47.129951,-120.563965,49.696062) do |status|
+      puts "SEATTLE:"+status.text
+      Crawls.create :region => "Sea_Van", :tweet => status.text
 	  end
-	  }
+ 	  }
     thread7 = Thread.new{ # Dallas, Austin and Houston, Texas
-	  client7.locations(28.883160,-99.777832,33.504759,-94.240723) do |status|
-      Crawls.create :Texas, :tweet => status.text
+	  client7.locations(-99.777832,28.883160,-94.240723,33.504759) do |status|
+      puts "DALLAS:"+status.text
+      Crawls.create :region => "Texas", :tweet => status.text
 	  end
-	  }
+ 	  }
     thread8 = Thread.new{ # Florida... as a whole
-	  client8.locations(24.447150,-87.121582,30.939924,-79.167480) do |status|
-      Crawls.create :Florida, :tweet => status.text
+	  client8.locations(-87.121582,24.447150,-79.167480,30.939924) do |status|
+      puts "FLORIDA:"+status.text
+      Crawls.create :region => "Florida", :tweet => status.text
 	  end
-	  }
-	  thread1.join#NYNY
-	  thread2.join#SanFran
+ 	  }
+ 	  thread1.join#NYNY
+ 	  thread2.join#SanFran
     thread3.join#ChiTown
     thread4.join#Atlanta
     thread5.join#Denver

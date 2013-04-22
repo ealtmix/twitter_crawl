@@ -13,23 +13,33 @@
 <br />
 <form action="/crawls" method="get">
 	<table border="0" cellpadding="10">
+		
+		<!--
+			we will default the locations to some certain areas, for exmaple 5 specific cities
+			and we will not let the user change locations
+			so the part below is commented out
+			however, the user can click on any of the "pins" on the map, so that the "Simple Statistics" part will
+			display statistics from that area
 		<tr>
 			<td>Which area are you interested in?</td>
 			<td><input type="textbox" name="area" id="area" /></td>	
 		</tr>
+		-->
 		<tr>
-			<td>What keywords are you looking for<br />from tweets?</td>
-			<td><input type="textbox" name="keywords" id="keywords" /></td>	
-		</tr>
-		<tr>
-			<td>What word would you like to<br />track from the area you<br />select?</td>
+			<!-- The user can enter a word to "track", and this word will be used to filter tweets.
+				Only tweets with this word will be shown,
+				and we will find out how many tweets contain this word from selected areas-->
+			<td>Word to track</td>
 			<td><input type="textbox" name="word_to_track" id="word_to_track" /></td>	
 		</tr>
 		<tr>
+			<!-- if the user chooses to remove the tracked word
+				then we will show tweets that do not contain this word,
+				and we will not need to find out how many tweets contain this word -->
 			<td>Would you like to remove the<br />word that you are tracking?</td>
 			<td>
-				<input type="radio" name="remove_tracking" value="yes">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="remove_tracking" value="no">No
+				<input type="radio" name="remove_tracking" value="yes" id="remove_tracking_yes">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="remove_tracking" value="no" id="remove_tracking_no">No
 			</td>	
 		</tr>
 	</table>
@@ -38,27 +48,33 @@
 	<p>What colors would you like to be associated with the following general emotions?</p>
 	<table border="0" cellpadding="10">
 		<tr>
+			<!-- if there are more tweets expressing happiness than sadness in a specific area, then
+				the pin will be colored with a "happy color" -->
 			<td>Happy</td>
 			<td>
-				<input type="radio" name="happy_color" value="green">Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="happy_color" value="yellow">Yellow &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="happy_color" value="pink">Pink 
+				<input type="radio" name="happy_color" value="green" id="happy_color_green">Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="happy_color" value="yellow" id="happy_color_yellow">Yellow &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="happy_color" value="pink" id="happy_color_pink">Pink 
 			</td>
 		</tr>	
 		<tr>
+			<!-- if there are more tweets expressing sadness than happiness in a specific area, then
+				the pin will be colored with a "sad color" -->
 			<td>Sad</td>
 			<td>
-				<input type="radio" name="sad_color" value="purple">Purple &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="sad_color" value="gray">Gray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="sad_color" value="blue">Blue 
+				<input type="radio" name="sad_color" value="purple" id="sad_color_purple">Purple &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sad_color" value="gray" id="sad_color_gray">Gray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sad_color" value="blue" id="sad_color_blue">Blue 
 			</td>
 		</tr>
 		<tr>
+			<!-- if equal numbers of tweets express happiness and sadness in a specific area, then 
+				the pin will be colored with a "neutral color" -->
 			<td>Neutral</td>
 			<td>
-				<input type="radio" name="neutral_color" value="gray">Gray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="neutral_color" value="green">Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="neutral_color" value="yellow">Yellow
+				<input type="radio" name="neutral_color" value="gray" id="neutral_color_gray">Gray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="neutral_color" value="green" id="neutral_color_green">Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="neutral_color" value="yellow" id="neutral_color_yellow">Yellow
 			</td>
 		</tr>
 	</table>
@@ -68,6 +84,9 @@
 </form>
 <br />
 <br />
+<!--  -->
+<!-- if the user clicks on one of the "pins" on the map, then the following section will display
+	statistics from that area marked by the pin -->
 <h3>Simple Statistics</h3>
 
 <p>There are <%= "####" %> tweets in the area you selected.</p>

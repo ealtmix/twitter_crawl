@@ -6,6 +6,14 @@ class CrawlsController < ApplicationController
   
   def index
     @tweet = Crawls.next_tweet
+    
+    # getting user input from form submission, which will be used to customize results for the user
+    @word_to_track = params['word_to_track'] #display only tweets that contain this word, i.e. tracking this word
+    @remove_or_not = params['remove_tracking'] #if this value is 'yes', then display tweets NOT containing the word
+    # the following are colors to display for the pins on the map
+    @happy_pin_color = params['happy_color']
+    @sad_pin_color = params['sad_color']
+    @neutral_pin_color = params['neutral_color']
   end
 
   def _tweet_partial
