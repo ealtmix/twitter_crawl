@@ -13,6 +13,54 @@
 
 ActiveRecord::Schema.define(:version => 20130419164949) do
 
+  create_table "Atlanta", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ChiTown", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "Denver", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "Florida", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "NewYork", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "SanFran", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "Sea_Van", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "Texas", :force => true do |t|
+    t.text     "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "crawls", :force => true do |t|
     t.text     "tweet"
     t.datetime "created_at"
@@ -21,36 +69,5 @@ ActiveRecord::Schema.define(:version => 20130419164949) do
     t.float    "lat"
     t.float    "long"
   end
-  create_table "NewYork" do |t|
-    t.text :tweet
-    t.timestamps
-  end
-  create_table "SanFran" do |t|
-    t.text :tweet
-    t.timestamps
-  end
-  create_table "ChiTown" do |t|
-    t.text :tweet
-    t.timestamps
-  end
-  create_table "Atlanta" do |t|
-    t.text :tweet
-    t.timestamps
-  end
-  create_table "Denver" do |t| 
-    t.text :tweet
-    t.timestamps
-  end
-  create_table "Sea_Van" do |t|
-    t.text :tweet
-    t.timestamps
-  end
-  create_table "Texas" do |t|
-    t.text :tweet
-    t.timestamps
-  end
-  create_table "Florida" do |t|
-    t.text :tweet
-    t.timestamps
-  end
+
 end
