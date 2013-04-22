@@ -33,6 +33,7 @@ describe CrawlsController do
   describe 'Farming tweets:' do
     it 'should farm certain tweets for Twitter' do
       mock = mock('Crawls')
+      get :edit
       #mock.should_receive(:tweet_farmer)
       #mock.stub!(:tweet_farmer).and_return(:tweet => 'happy', :user => 'SELT', :lat => 10, :long => 10)
     end
@@ -59,7 +60,5 @@ end
 #            answer = @tweet.tweet_farmer
 #            answer.should match("happy")
 #        end
-  end
-end
 
 
