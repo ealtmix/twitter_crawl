@@ -16,7 +16,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'ZenTest'
-
 end
 
 group :assets do
@@ -49,6 +48,7 @@ group :test do
   gem 'turn', :require => false
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem "selenium-webdriver", "~> 2.32.1"
 end
 
 group :production do
