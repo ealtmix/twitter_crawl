@@ -67,13 +67,16 @@ end
 
 
 When /^I choose "(.?)" for "(.?)" pins$/ do |color, emotion|
-  choose(emotion + "_color_" + color)
+  # select the corresponding color from the corresponding option from the select drop box
+  select(color, :from => emotion)
 end
 
-Then /^I should see the pin at location "(.?)" is "(.?)"$/ do |pin_location, color|
-  lat = pin_location.split(',')[0].to_f
-  long = pin_location.split(',')[1].to_f
-  
+Then /^I should see the pin at "(.?)" is "(.?)"$/ do |city, color|
+  result=false
+  if params[marker_colors][city] == color
+     result=true
+  end
+  assert result
 end
 
 
