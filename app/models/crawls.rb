@@ -2,8 +2,19 @@ class Crawls < ActiveRecord::Base
   require 'tweetstream'
   require 'rubygems'
 
+  def self.get_region_stats(word,region)
+    puts region.to_s
+    puts word.to_s
+
+    puts Crawls.where("region = ? AND tweet LIKE ?",region.to_s, '%'+word.to_s+'%').all.to_s
+    
+  end
+
   def self.tweet_pruner
-    Crawls.destroy_all(['updated_at > ?', 2.hours.ago])
+    while(true) do
+      sleep 60
+      Crawls.destroy_all(['updated_at > ?', 2.hours.ago])
+    end
   end
 
   def self.chicago
