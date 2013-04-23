@@ -7,20 +7,22 @@ I want to be able to choose colors for pins on the map according to happy, sad, 
 Background: Tweets on page
 
   Given the following tweets are displayed on TwitterCrawler:
-  |tweet        |user   |lat  	|long	|
-  |I am sad     |George |7.34	|19.25 	|
-  |We are happy |Lucas  |56.34 	|20.06 	|
-  |Happy        |Ridley |12.34  |51.69 	|
-  |OMG happy    |Scott	|78.34 	|65.25 	|
-  |OMG sad      |Mike   |78.34  |65.25  |
+  |tweet        |user   |lat	|long	|
+  |I am sad     |George |34 	|-84.20 |
+  |We are happy |Lucas  |33.80 	|-84.30	|
+  |Happy        |Ridley |33.90  |-84.50 |	|
+  |OMG happy    |Scott	|39 	|-104 	|
+  |OMG sad      |Mike   |38.60  |-105   |
+  |sad          |Jack   |38.70  |-106   |
+  |sad          |Tom    |48     |-121   |
+  |happy        |Jason  |49     |-122   |
 
 Scenario: Change pin color
 
  Given I am on the TwitterCrawler home page
  When I choose green for happy pins
  And I choose gray for sad pins
- And I choose yellow for neutral pins
- Then I should see the pin at location 56.34,20.06 is green
- And I should see the pin at location 7.34,19.25 is gray
- And I should see the pin at location 78.34,65.25 is yellow
+ Then I should see the pin at Atlanta is green
+ And I should see the pin at Denver is gray
+ And I should see the pin at Seattle is white
  
