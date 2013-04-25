@@ -6,15 +6,11 @@ describe CrawlsController do
   describe 'Viewing Tweets:' do
     it 'should call the next_tweet method' do
       Crawls.should_receive(:next_tweet)
+			#Crawls.
       get :index
     end
   end
 
-  describe 'Partial Tweets:' do
-    it 'should respond to partial tweets' do
-      get :_tweet_partial
-    end
-  end
 
 end
 
