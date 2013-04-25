@@ -6,7 +6,6 @@ describe CrawlsController do
   describe 'Viewing Tweets:' do
     it 'should call the next_tweet method' do
       Crawls.should_receive(:next_tweet)
-			#Crawls.
       get :index
     end
   end
