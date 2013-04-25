@@ -13,61 +13,11 @@
 
 ActiveRecord::Schema.define(:version => 20130420200628) do
 
-  create_table "Atlanta", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "ChiTown", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "Denver", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "Florida", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "NewYork", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "SanFran", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "Sea_Van", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "Texas", :force => true do |t|
-    t.text     "tweet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "crawls", :force => true do |t|
     t.text     "tweet"
+    t.text     "region"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "user"
-    t.float    "lat"
-    t.float    "long"
   end
 
 end

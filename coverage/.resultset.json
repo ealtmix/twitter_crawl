@@ -1,20 +1,20 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ubuntu/Documents/twitter_crawl/app/controllers/application_controller.rb": [
+      "/home/saasbook/t_crawl/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/home/ubuntu/Documents/twitter_crawl/app/helpers/application_helper.rb": [
+      "/home/saasbook/t_crawl/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/Documents/twitter_crawl/app/helpers/crawl_helper.rb": [
+      "/home/saasbook/t_crawl/app/helpers/crawl_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/Documents/twitter_crawl/app/controllers/crawls_controller.rb": [
+      "/home/saasbook/t_crawl/app/controllers/crawls_controller.rb": [
         1,
         1,
         1,
@@ -28,7 +28,6 @@
         0,
         0,
         null,
-        0,
         0,
         0,
         null,
@@ -62,13 +61,24 @@
         null,
         null
       ],
-      "/home/ubuntu/Documents/twitter_crawl/app/models/crawls.rb": [
+      "/home/saasbook/t_crawl/app/models/crawls.rb": [
         1,
         1,
         1,
         null,
         1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
         0,
+        0,
+        0,
+        null,
         null,
         null,
         1,
@@ -199,7 +209,7 @@
         null
       ]
     },
-    "timestamp": 1366680242
+    "timestamp": 1366848041
   },
   "Cucumber Features": {
     "coverage": {
