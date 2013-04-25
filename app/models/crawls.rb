@@ -3,11 +3,7 @@ class Crawls < ActiveRecord::Base
   require 'rubygems'
 
   def self.get_region_stats(word,region)
-#    puts region.to_s
-#    puts word.to_s
-
-    Crawls.where("region = ? AND tweet LIKE ?",region.to_s, '%'+word.to_s+'%').all.to_s
-    
+    Crawls.where("region = ? AND tweet LIKE ?",region.to_s, '%'+word.to_s+'%').all
   end
 
   def self.tweet_pruner
@@ -27,7 +23,7 @@ class Crawls < ActiveRecord::Base
 	  end
     client3 = TweetStream::Client.new
     client3.locations(-88.210602,41.553811,-87.400360,42.259016) do |status|
-      puts "CHITOWN:"+status.text
+#puts "CHITOWN:"+status.text
       Crawls.create :region => "ChiTown", :tweet => status.text
 	  end
   end
@@ -45,7 +41,7 @@ class Crawls < ActiveRecord::Base
       client1.on_error do |msg|
         puts msg.txt
       end
-      puts "NYNY:"+status.text
+#     puts "NYNY:"+status.text
       Crawls.create :region => "NewYork", :tweet => status.text
 	  end
   end
@@ -60,7 +56,7 @@ class Crawls < ActiveRecord::Base
 	  end
     client4 = TweetStream::Client.new
     client4.locations(-84.541855,33.605470,-84.092789,34.018518) do |status|
-      puts "ATLANTA:"+status.text
+#     puts "ATLANTA:"+status.text
       Crawls.create :region => "Atlanta", :tweet => status.text
 	  end
   end
@@ -74,7 +70,7 @@ class Crawls < ActiveRecord::Base
 	  end
     client5 = TweetStream::Client.new
     client5.locations(-107.385864,38.548165,-103.705444,40.497092) do |status|
-      puts "DENVER:"+status.text
+#     puts "DENVER:"+status.text
       Crawls.create :region => "Denver", :tweet => status.text
 	  end
   end
@@ -89,7 +85,7 @@ class Crawls < ActiveRecord::Base
 	  end
     client6 = TweetStream::Client.new
     client6.locations(-125.529785,47.129951,-120.563965,49.696062) do |status|
-      puts "SEATTLE:"+status.text
+#     puts "SEATTLE:"+status.text
       Crawls.create :region => "Sea_Van", :tweet => status.text
 	  end
   end
@@ -104,7 +100,7 @@ class Crawls < ActiveRecord::Base
 	  end
     client2 = TweetStream::Client.new
     client2.locations(-123.042755,37.302460,-121.828766,38.195022) do |status|
-      puts "SANFRAN:"+status.text
+#     puts "SANFRAN:"+status.text
       Crawls.create :region => "SanFran", :tweet => status.text
 	  end
   end
@@ -119,7 +115,7 @@ class Crawls < ActiveRecord::Base
 	  end
     client8 = TweetStream::Client.new
     client8.locations(-87.121582,24.447150,-79.167480,30.939924) do |status|
-      puts "FLORIDA:"+status.text
+#     puts "FLORIDA:"+status.text
       Crawls.create :region => "Florida", :tweet => status.text
 	  end
   end
@@ -137,7 +133,7 @@ class Crawls < ActiveRecord::Base
       client7.on_error do |msg|
         puts msg.text
       end
-      puts "DALLAS:"+status.text
+#     puts "DALLAS:"+status.text
       Crawls.create :region => "Texas", :tweet => status.text
 	  end
   end
