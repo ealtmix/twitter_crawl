@@ -3,10 +3,10 @@ class Crawls < ActiveRecord::Base
   require 'rubygems'
 
   def self.get_region_stats(word,region)
-    puts region.to_s
-    puts word.to_s
+#    puts region.to_s
+#    puts word.to_s
 
-    puts Crawls.where("region = ? AND tweet LIKE ?",region.to_s, '%'+word.to_s+'%').all.to_s
+    Crawls.where("region = ? AND tweet LIKE ?",region.to_s, '%'+word.to_s+'%').all.to_s
     
   end
 
