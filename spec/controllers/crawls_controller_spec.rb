@@ -2,21 +2,19 @@ require 'spec_helper'
 require 'tweetstream'
 
 describe CrawlsController do
-  fake_tweet = Crawls.create(:tweet => 'tweet', :lat => 10, :long => 10, :user => 'test')
   describe 'Viewing Tweets:' do
-    it 'should call the next_tweet method' do
-      Crawls.should_receive(:next_tweet)
+    it 'should call the get_region_stats method' do
+      Crawls.should_receive(:get_region_stats)
       get :index
     end
   end
-
+=begin
   describe 'Partial Tweets:' do
     it 'should respond to partial tweets' do
       get :_tweet_partial
     end
   end
 
-=begin  
   describe 'Changing keyword:' do
     it 'should change the keyword' do
       mock = mock('Crawls')
