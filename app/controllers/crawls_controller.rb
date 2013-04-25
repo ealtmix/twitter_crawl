@@ -15,13 +15,6 @@ class CrawlsController < ApplicationController
     @sad_pin_color = params['sad']
   end
 
-  def _tweet_partial
-    @tweet = Crawls.next_tweet
-    respond_to do |format|
-      format.html
-    end
-  end
-
   def new
 
   end
