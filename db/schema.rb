@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(:version => 20130412003137) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "user"
-    t.float    "lat"
-    t.float    "long"
+    t.text     "region"
   end
 
 end
