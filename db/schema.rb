@@ -15,5 +15,7 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table "crawls", :force => true do |t|
     t.text "tweet"
     t.text "region"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 end
