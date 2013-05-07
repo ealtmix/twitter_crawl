@@ -1,81 +1,57 @@
-<%= javascript_include_tag :defaults, 'tweet_query.js'%>
+<%= javascript_include_tag :defaults, "http://maps.googleapis.com/maps/api/js?key=AIzaSyDuo9cl4VfzJYyTvkf37Y1102nzawHXSfI&sensor=false" %>
 <p>Note: The following is the "params" hash, just a test for development purposes, to make sure that the form submission data is successfully received. You can fill out the form, and click the "Submit" button to see the params.</p>
 <%= params.inspect %>
 <div id="content">
 <h1 class="center">Welcome to Twitter Crawl!</h1>
 <h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
 <h3 id="tweety"><%= if !@tweet.nil? then @tweet end %> </h3>
-<div id="mapDiv">
-<!-- Map goes here -->	
+<div id="mapDiv" style="width: 200; height: 100"></div>
+<!-- Map goes here -->
+<!--  <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDuo9cl4VfzJYyTvkf37Y1102nzawHXSfI&sensor=false">
+  </script>
 
-</div>
+  <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("mapDiv"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+  </script> -->
 <br />
 <br />
 <form action="/crawls" method="get">
-	<table border="0" cellpadding="10">
-		
-		<!--
-			we will default the locations to some certain areas, for exmaple 5 specific cities
-			and we will not let the user change locations
-			so the part below is commented out
-			however, the user can click on any of the "pins" on the map, so that the "Simple Statistics" part will
-			display statistics from that area
+	<table border="0" cellpadding="3">
 		<tr>
-			<td>Which area are you interested in?</td>
-			<td><input type="textbox" name="area" id="area" /></td>	
-		</tr>
-		-->
-		<tr>
-			<!-- The user can enter a word to "track", and this word will be used to filter tweets.
-				Only tweets with this word will be shown,
-				and we will find out how many tweets contain this word from selected areas-->
-			<td>Word to track</td>
-			<td><input type="textbox" name="word_to_track" id="word_to_track" /></td>	
+			<td><input type="textbox" width="20" name="word1" value="happy" /></td>
+			<td><input type="textbox" width="20" name="word2" value="sad" /></td>
 		</tr>
 		<tr>
-			<!-- if the user chooses to remove the tracked word
-				then we will show tweets that do not contain this word,
-				and we will not need to find out how many tweets contain this word -->
-			<td>Would you like to remove the<br />word that you are tracking?</td>
 			<td>
-				<input type="radio" name="remove_tracking" value="yes" id="remove_tracking_yes">Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="remove_tracking" value="no" id="remove_tracking_no">No
-			</td>	
-		</tr>
-	</table>
-	
-	<br />
-	<p>What colors would you like to be associated with the following general emotions?</p>
-	<table border="0" cellpadding="10">
-		<tr>
-			<!-- if there are more tweets expressing happiness than sadness in a specific area, then
-				the pin will be colored with a "happy color" -->
-			<td>Happy</td>
-			<td>
-				<select id="happy" name="happy">
-					<option value="green">green</option>
-					<option value="yellow">yellow</option>
-					<option value="pink">pink</option>	
-				</select>
+				<select name="color1">
+				  <option value="red">red</option>
+				  <option value="yellow">yellow</option>
+				  <option value="green">green</option>
+				</select> 
 			</td>
-		</tr>	
-		<tr>
-			<!-- if there are more tweets expressing sadness than happiness in a specific area, then
-				the pin will be colored with a "sad color" -->
-			<td>Sad</td>
 			<td>
-				<select id="sad" name="sad">
-					<option value="purple">purple</option>
-					<option value="gray">gray</option>
-					<option value="blue">blue</option>	
-				</select>
+				<select name="color2">
+				  <option value="blue">blue</option>
+				  <option value="purple">purple</option>
+				  <option value="gray">gray</option>
+				</select> 
 			</td>
 		</tr>
-		
+		<tr>
+			<td><input type="submit" value="Track" /></td>
+			<td><input type="reset" value="Reset" /></td>
+		</tr>
 	</table>
-	<br />
-	<input type="submit" value="Submit" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="reset" value="Reset" />
 </form>
 <br />
 <br />
