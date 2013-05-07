@@ -53,6 +53,10 @@ class Crawls < ActiveRecord::Base
     end
   end
 
+  def self.cities
+    Crawls.select_values("select distinct(region) from movies")
+  end
+
 
 end
 #jakes twitter shit
