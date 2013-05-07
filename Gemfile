@@ -26,6 +26,7 @@ group :assets do
   gem 'devise'
   gem 'omniauth-twitter'
   gem 'twitter'
+  gem 'em-twitter'
   gem 'tweetstream'
   gem 'daemons'
   gem 'yajl-ruby'
