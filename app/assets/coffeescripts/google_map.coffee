@@ -1,0 +1,12 @@
+  map = null
+  infoWindow = null
+  marker = null
+  markers = null
+
+  initialize = () ->
+    mapOptions =
+      center: new google.maps.LatLng(47,-122)
+      zoom: 11
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      
+    map = new google.maps.Map $('#mapDiv')[0], myOptions
