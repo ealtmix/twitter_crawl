@@ -5,6 +5,12 @@ class CrawlsController < ApplicationController
   end
   
   def index
+  #################################################################################
+  #
+  #		Uncomment @tweets line
+  #
+  #################################################################################
+  
     @tweets = Crawls.get_region_stats("tweet","NewYork")
     # getting user input from form submission, which will be used to customize results for the user
     @word_to_track = params['word_to_track'] #display only tweets that contain this word, i.e. tracking this word
