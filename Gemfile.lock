@@ -247,6 +247,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   devise
+  em-twitter
   jquery-rails
   launchy
   minitest

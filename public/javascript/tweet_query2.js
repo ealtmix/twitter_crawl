@@ -1,22 +1,23 @@
   GMAP {
     setup: function() {
       var mapOptions = {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 0,
+        center: new google.maps.LatLng(-34.397, 150.644),
+        zoom: 8,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
-      var map = new google.maps.Map($('#mapDiv')[0], mapOptions);
+      map = new google.maps.Map($('#mapDiv')[0], mapOptions);
 
-      //setMarkers();
+      setMarkers();
     },
     setMarkers: function() {
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(0, 0),
+        position: new google.maps.LatLng(-34.397, 150.644),
         map: map,
         title:"Hello World!"
       });
 
       createInfoWindow(marker)
+      markers.push(marker);
     },
     createInfoWindow: function() {
       var infoWindow = new google.maps.InfoWindow({
@@ -27,5 +28,4 @@
         infowindow.open(map,marker);
       });
     }
-  }
-  $(GMAP.setup);
+    $(GMAP.setup);

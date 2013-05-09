@@ -9,7 +9,6 @@ Given /^I am on the TwitterCrawler home page$/ do
 end
 
 
-
 When /^I search for "(.*?)" and "(.*?)"$/ do |word1,word2|
   fill_in 'word1', :with => word1
   fill_in 'word2', :with => word2
@@ -48,7 +47,6 @@ end
 
 
 Then /^I should see a map$/ do
-	page.should have_content(div/map)
-  #page.should have_xpath /map/
+	page.should have_css('div#mapDiv')
 end
 

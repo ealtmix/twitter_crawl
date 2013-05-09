@@ -1,0 +1,5 @@
+cd ../
+rails runner 'Crawls.region_farmer(-88.210602,41.553811,-87.400360,42.259016,"Chicago")'
+rails runner 'Crawls.region_farmer(-88.210602,40.553811,-73.664703,41.957086,"New York")'
+rails runner 'Crawls.region_farmer(-84.541855,33.605470,-84.092789,34.018518,"Atlanta")'
+

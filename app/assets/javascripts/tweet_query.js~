@@ -7,7 +7,7 @@
       };
       var map = new google.maps.Map($('#mapDiv')[0], mapOptions);
 
-      //setMarkers();
+      setMarkers();
     },
     setMarkers: function() {
       var marker = new google.maps.Marker({
