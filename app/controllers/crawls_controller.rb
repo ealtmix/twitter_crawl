@@ -3,12 +3,9 @@ class CrawlsController < ApplicationController
   def show
  
   end
-
-  def cities
-    Crawls.cities
-  end
   
   def index
+    @cities = Crawls.cities
     @tweets = Crawls.get_region_stats("tweet","NewYork")
     # getting user input from form submission, which will be used to customize results for the user
     # the following are the two words that the user wants to track
