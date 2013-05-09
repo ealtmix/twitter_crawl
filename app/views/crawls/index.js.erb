@@ -1,2 +1,4 @@
-$("#word1_hidden_treasure").html('<%= escape_javascript(@word1_tweets.to_s) %>')
-$("#word2_hidden_treasure").html('<%= escape_javascript(@word2_tweets.to_s) %>')
+$("#chicago").html('<%= escape_javascript(@word1_tweets_chi.to_s) %>')
+$("#new_york").html('<%= escape_javascript(@word1_tweets_ny.to_s) %>')
+$("#chicago").append('<%= escape_javascript(@word2_tweets_chi.to_s) %>')
+$("#new_york").append('<%= escape_javascript(@word2_tweets_ny.to_s) %>')
