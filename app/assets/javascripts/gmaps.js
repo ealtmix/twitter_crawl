@@ -13,8 +13,13 @@ $(document).ready(
       };
       map = new google.maps.Map(document.getElementById("mapDiv"),
           mapOptions);
-
-      setMarker('Chicago');
+      
+      var cities = document.getElementById("cities").innerHTML
+      cities = cities.split("\", \"")
+      for(var i = 0; i < cities.length; i++)
+      {
+        setMarker(cities.pop())
+      }
     }
 
     //define the set marker function

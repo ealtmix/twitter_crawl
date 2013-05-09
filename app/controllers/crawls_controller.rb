@@ -12,10 +12,6 @@ class CrawlsController < ApplicationController
     end
   end
 
-  def cities
-    @cities = Crawls.cities
-  end
-
   def index
     @cities = Crawls.cities
     @tweets = Crawls.get_region_stats("tweet","NewYork")

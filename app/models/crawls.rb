@@ -4,14 +4,14 @@ class Crawls < ActiveRecord::Base
   require 'twitter'
   @tweet_array = nil
   @cities = Hash.new
-  @cities={"Chicago" => [-88.210602,41.553811,-87.400360,42.259016],
-           "Atlanta" => [-84.541855,33.605470,-84.092789,34.018518],
-           "New York" => [-74.509277,40.283811,-73.664703,41.957086],
-           "San Francisco" => [-123.042755,37.302460,-121.828766,38.195022],
-           "Denver" => [-107.385864,38.548165,-103.705444,40.497092],
-           "Florida" => [-87.121582,24.447150,-79.167480,30.939924],
-           "Texas" => [-99.777832,28.883160,-94.240723,33.504759],
-           "Seattle" => [-125.529785,47.129951,-120.563965,49.696062]}
+  @cities={"Chicago, IL" => [-88.210602,41.553811,-87.400360,42.259016],
+           "Atlanta, GA" => [-84.541855,33.605470,-84.092789,34.018518],
+           "New York, NY" => [-74.509277,40.283811,-73.664703,41.957086],
+           "San Francisco, CA" => [-123.042755,37.302460,-121.828766,38.195022],
+           "Denver, CO" => [-107.385864,38.548165,-103.705444,40.497092],
+           "Tampa, FL" => [-87.121582,24.447150,-79.167480,30.939924],
+           "Austin, TX" => [-99.777832,28.883160,-94.240723,33.504759],
+           "Seattle, WA" => [-125.529785,47.129951,-120.563965,49.696062]}
   def self.get_region_stats(word,region)
     Crawls.select(:tweet).where("region = ? AND tweet LIKE ?",region.to_s, '% '+word.to_s+' %')
     
@@ -83,13 +83,8 @@ class Crawls < ActiveRecord::Base
     puts user.tweet_count
     puts Twitter::Client.new
 
-# twitter = Twitter::Search.new
-#   while(true)
-#     results = twitter.containing("why")
-#     results.each do |stati|
-#       puts stati.text
-#     end
-#   end
+  def self.cities
+    @cities.keys
   end
 
   def self.cities
