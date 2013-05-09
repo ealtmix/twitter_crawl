@@ -15,7 +15,7 @@ $(document).ready(
           mapOptions);
       
       var cities = document.getElementById("cities").innerHTML
-      cities = cities.split("\",\"")
+      cities = cities.split("\", \"")
       for(var i = 0; i < cities.length; i++)
       {
         setMarker(cities.pop())

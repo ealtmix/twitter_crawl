@@ -31,6 +31,8 @@ group :assets do
   gem 'daemons'
   gem 'yajl-ruby'
   gem 'jquery-rails'
+  gem 'simple_oauth'
+  gem 'multi_json'
 end
 
 
