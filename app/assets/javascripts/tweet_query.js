@@ -24,7 +24,7 @@
       });
       
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
+        infoWindow.open(map,marker);
       });
     }
   }

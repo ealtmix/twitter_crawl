@@ -7,3 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$('.fresh').bind('ajax:success', function() {  
+        $("#word1_hidden_treasure").html("damnit jim");  
+        });

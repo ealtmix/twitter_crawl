@@ -1,0 +1,3 @@
+$('.fresh').bind('ajax:success', function() {  
+            $("#word1_hidden_treasure").html('<%= escape_javascript(@cities.first) %>');
+            });  
