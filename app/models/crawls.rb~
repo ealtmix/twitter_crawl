@@ -83,18 +83,8 @@ class Crawls < ActiveRecord::Base
     puts user.tweet_count
     puts Twitter::Client.new
 
-<<<<<<< HEAD
   def self.cities
     @cities.keys
-=======
-# twitter = Twitter::Search.new
-#   while(true)
-#     results = twitter.containing("why")
-#     results.each do |stati|
-#       puts stati.text
-#     end
-#   end
->>>>>>> f9d0c4fda232f022d9fff6b472b137f6e7ae7e2c
   end
 
   def self.cities

@@ -82,6 +82,7 @@ class Crawls < ActiveRecord::Base
     puts user.method_names
     puts user.tweet_count
     puts Twitter::Client.new
+  end
 
   def self.cities
     @cities.keys
