@@ -97,9 +97,8 @@ class Crawls < ActiveRecord::Base
     ['Chicago','Atlanta']     
     
   end
-
-
 end
+
 #jakes twitter shit
 #config.consumer_key       = '5OmFa8Q9WdwgQZvgDU6UQw'
 #config.consumer_secret    = 'UVhqq9IA9JzAZVQ16hfnFNwvtZv938CyocXD4p2WfA0'

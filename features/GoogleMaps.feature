@@ -8,8 +8,8 @@ Feature: Display a map with tweets
 Background: Tweets on page
 
   Given the following tweets are displayed on TwitterCrawler:
-  |tweet        |user   |lat  	|long	  |
-  |I am happy   |George |7.34	  |19.25 	|
+  |tweet        |user   |lat  	|long	|
+  |I am happy   |George |7.34	|19.25 	|
   |We are happy |Lucas  |56.34 	|20.06 	|
   |happy        |Ridley |12.34  |51.69 	|
   |OMG happy    |Scott	|78.34 	|65.25 	|

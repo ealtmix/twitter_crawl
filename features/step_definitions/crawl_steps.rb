@@ -9,16 +9,16 @@ Given /^I am on the TwitterCrawler home page$/ do
 end
 
 
-
-When /^I search for "(.*?)"$/ do |word1|
-  fill_in 'word_to_track', :with => word1
-  click_button 'Submit'
+When /^I search for "(.*?)" and "(.*?)"$/ do |word1,word2|
+  fill_in 'word1', :with => word1
+  fill_in 'word2', :with => word2
+  click_button 'Track'
 end
 
-Then /^all tweets shown should contain "(.*?)"$/ do |word| 
+Then /^all tweets shown should contain "(.*?)" or "(.*?)"$/ do |word1,word2| 
   result=false
-  all("h3").each do |h3|
-    if h3.has_content?(word)
+  all("h4").each do |h4|
+    if (h4.has_content?(word1) || h4.has_content(word2))
       result=true
       break
     end
@@ -27,51 +27,17 @@ Then /^all tweets shown should contain "(.*?)"$/ do |word|
 end
 
 
-Given /^I am tracking "(.*?)"$/ do |word1|
-  fill_in 'word_to_track', :with => word1
-  choose 'remove_tracking_no' 
-  click_button 'Submit'
+When(/^I choose "(.*?)" for the color of the first keyword$/) do |color|
+  # select the corresponding color from the drop-down menu
+  select(color, :from => 'color1')
 end
 
-#And /^I am on the TwitterCrawler home page$/ do
-#  visit('/index')
-#end
-
-When /^I remove "(.?)" from the keywords$/ do |word|
-  fill_in 'word_to_track', :with => word  #to remove the tracked word, first enter the word in the 'word to track' field
-  choose 'remove_tracking_yes' #then select the 'yes' radio button
-  click_button 'Submit'    # finally submit the form
+When(/^I choose "(.*?)" for the color of the second keyword$/) do |color|
+  # select the corresponding color from the drop-down menu
+  select(color, :from => 'color2')
 end
 
-Then /^I should not see "(.?)" displayed$/ do |word|
-  result=true
-  all("h3").each do |tr|
-    if tr.has_content?(word)
-      result = false
-      break
-    end
-  end  
-  assert result
-end
-  
-But /^I should see "(.?)" displayed$/ do |word|
-  result=false
-  all("h3").each do |tr|
-    if tr.has_content?(word)
-      result = true
-      break
-    end
-  end  
-  assert result
-end
-
-
-When /^I choose "(.?)" for "(.?)" pins$/ do |color, emotion|
-  # select the corresponding color from the corresponding option from the select drop box
-  select(color, :from => emotion)
-end
-
-Then /^I should see the pin at "(.?)" is "(.?)"$/ do |city, color|
+Then(/^I should see the pin at "(.*?)" is "(.*?)"$/) do |city, color|
   result=false
   if params[marker_colors][city] == color
      result=true
@@ -81,7 +47,6 @@ end
 
 
 Then /^I should see a map$/ do
-	#page.should have_content(div/map)
-  page.should have_xpath /map/
+	page.should have_css('div#mapDiv')
 end
 
