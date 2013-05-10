@@ -14,12 +14,12 @@ $(document).ready(
       map = new google.maps.Map(document.getElementById("mapDiv"),
           mapOptions);
       
-      setMarker("Chicago");
-      setMarker("New York");
+      setMarker("Chicago","red");
+      setMarker("New York","red");
     }
 
     //define the set marker function
-    setMarker = function(city){
+    setMarker = function(city, color){
       var geocoder = new google.maps.Geocoder();
 			geocoder.geocode( {'address': city}, function(results,status) {
 				var lat = results[0].geometry.location.lat();
@@ -28,7 +28,8 @@ $(document).ready(
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(lat, lng),
           map: map,
-          title: city
+          title: city,
+          icon: '/assets/' + color + '_MarkerA.png'
         });
 
         createInfoWindow(marker,city)
