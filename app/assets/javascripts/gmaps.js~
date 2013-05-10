@@ -42,15 +42,23 @@ $(document).ready(
 
     createInfoWindow = function(marker,city){
       var infoWindow = new google.maps.InfoWindow({
-        content: "<div id=" + city + " >" + city + "</div>"
+        content: "<div id='" + city + " window' ></div>"
       });
       
       google.maps.event.addListener(marker, 'click', function() {
         if(infoWindow)
 						infoWindow.close();
-
+    
+        //update the content of the window
+        updateWindow(city); 
+        
+        //opne the info window
         infoWindow.open(map,marker);
       });
+    }
+
+    updateWindow = function(city){
+      document.getElementById(city + " window").innerHTML = document.getElementById(city + " tweet_info");
     }
 
     //call the initialization function
