@@ -6,7 +6,7 @@
 <div id="content">
 <h1 class="center">Welcome to Twitter Crawl!</h1>
 <h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
-<h4>Currently tracking <%= @word1 %> and <%= @word2 %></h4>
+<h4>Currently tracking <span id='word1'><%= @word1  %></span> and <span id='word2'><%= @word2 %> </span></h4>
 <div id="mapDiv" style="width: 200; height: 100"></div>
 <br />
 <br />
@@ -15,8 +15,8 @@
 
 <%= form_tag 'crawls/index', :remote => true do -%>
 		<tr>
-      <td><%= text_field_tag('word1', "happy", :size => 20) %> </td>
-			<td><%= text_field_tag('word2', "sad", :size => 20) %> </td>
+      <td><%= text_field_tag('word1', "happy", :size => 10) %> </td>
+			<td><%= text_field_tag('word2', "sad", :size => 10) %> </td>
 		</tr>
 		<tr>
 			<td>

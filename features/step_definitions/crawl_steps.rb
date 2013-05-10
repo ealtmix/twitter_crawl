@@ -12,7 +12,7 @@ end
 When /^I search for "(.*?)" and "(.*?)"$/ do |word1,word2|
   fill_in 'word1', :with => word1
   fill_in 'word2', :with => word2
-  click_button 'Track'
+  click_button 'submit'
 end
 
 Then /^all tweets shown should contain "(.*?)" or "(.*?)"$/ do |word1,word2| 
