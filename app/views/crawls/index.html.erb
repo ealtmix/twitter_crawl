@@ -6,7 +6,7 @@
 <div id="content">
 <h1 class="center">Welcome to Twitter Crawl!</h1>
 <h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
-<h4>Currently tracking <span id='word1'><%= @word1  %></span> and <span id='word2'><%= @word2 %> </span></h4>
+<h4>Currently tracking <span id='word1' style='color: <%= @color1 %>'><%= @word1  %></span> and <span id='word2'><%= @word2 %> </span></h4>
 <div id="mapDiv" style="width: 200; height: 100"></div>
 <br />
 <br />
@@ -32,22 +32,18 @@
 		</tr>
     <% end -%>
 	</table>
-<br />
-chitown stuff:<br/>
-<div id="Chicago_tweet_info"></div>
-ny stuff:<br/>
-<div id="New_York_tweet_info"></div>
-<br />
+<br/>
 <!--  -->
 <!-- if the user clicks on one of the "pins" on the map, then the following section will display
 	statistics from that area marked by the pin -->
 <h3>Simple Statistics</h3>
 
-<p>There are <%= "####" %> tweets in the area you selected.</p>
+<p>In the last two hours there have been <span id='ny_count' color='red'><%= @ny_count.to_s %></span> tweets New York, and <span id='chi_count' ><%= @chi_count.to_s  %></span> tweets in Chicago</p>
 <br />
-<p>The following are the top keywords among the tweets from the area you selected.</p>
-<br />
-<p><%= "####" %>tweets contain the keyword that you are tracking from the area you selected.</p>
-<br />
+<span style="visibility: hidden" id="cities" > <%= @cities %> </span>
+<span style="visibility: hidden" id="Chicago_tweet_info"></span>
+<span style="visibility: hidden" id="New_York_tweet_info"></span>
+<span style="visibility: hidden" id="hidden_span_for_Yi"></span>
 </div>
-<div id="cities" > <%= @cities %> </div>
+
+

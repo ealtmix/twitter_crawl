@@ -13,6 +13,10 @@ class Crawls < ActiveRecord::Base
     Crawls.select(:tweet).where("region = ? AND tweet LIKE ?",region.to_s, '% '+word.to_s+' %')
   end
 
+  def self.get_region_count(region)
+    Crawls.where("region = ?", region.to_s).count
+  end
+
   def self.tweet_pruner
     while(true) do
       Crawls.destroy_all(['updated_at < ?', 2.hours.ago])

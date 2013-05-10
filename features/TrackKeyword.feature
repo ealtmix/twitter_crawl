@@ -19,4 +19,4 @@ Scenario: Track two keywords trending on Twitter
 
   Given I am on the TwitterCrawler home page
   When I search for "happy" and "sad" 
-  Then all tweets shown should contain "happy" or "sad"
+  Then the header shown shown should contain "happy" or "sad"

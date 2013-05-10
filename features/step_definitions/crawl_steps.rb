@@ -15,7 +15,7 @@ When /^I search for "(.*?)" and "(.*?)"$/ do |word1,word2|
   click_button 'submit'
 end
 
-Then /^all tweets shown should contain "(.*?)" or "(.*?)"$/ do |word1,word2| 
+Then /^the header shown should contain "(.*?)" or "(.*?)"$/ do |word1,word2| 
   result=false
   all("h4").each do |h4|
     if (h4.has_content?(word1) || h4.has_content(word2))

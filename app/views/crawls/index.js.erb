@@ -16,3 +16,7 @@ $("#Chicago_tweet_info").append('</br><%= escape_javascript(@word2_tweets_chi.to
 $("#New_York_tweet_info").append('</br><%= escape_javascript(@word2_tweets_ny.to_s) %>')
 $("#word1").html('<%= escape_javascript(@word1.to_s) %>')
 $("#word2").html('<%= escape_javascript(@word2.to_s) %>')
+$("#chi_count").html('<%= escape_javascript(@chi_count.to_s) %>')
+$("#ny_count").html('<%= escape_javascript(@ny_count.to_s) %>')
+$("#word1").css("color",'<%= escape_javascript(@color1.to_s) %>')
+$("#word2").css("color",'<%= escape_javascript(@color2.to_s) %>')

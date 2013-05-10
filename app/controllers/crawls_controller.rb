@@ -17,6 +17,8 @@ class CrawlsController < ApplicationController
     @chicago_2 = Crawls.get_region_stats(@word2.to_s,"Chicago")
     @newyork_1 = Crawls.get_region_stats(@word1.to_s,"New York")
     @newyork_2 = Crawls.get_region_stats(@word2.to_s,"New York")
+    @chi_count = Crawls.get_region_count("Chicago")
+    @ny_count = Crawls.get_region_count("New York")
     if(!@chicago_1.nil? && !@chicago_2.nil? && !@newyork_1.nil? && !@newyork_2.nil?) then
       @word1_num_chi = @chicago_1.count
       @word2_num_chi = @chicago_2.count
