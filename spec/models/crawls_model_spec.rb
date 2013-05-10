@@ -15,4 +15,7 @@ describe Crawls do
     Crawls.farm("Chicago, IL", true).nil?
     Crawls.farm("New York, NY", true).nil?
   end
+  it 'should return nil from the tweet_pruner method' do
+    Crawls.tweet_pruner(true).nil?
+  end
 end

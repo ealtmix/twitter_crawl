@@ -17,9 +17,10 @@ class Crawls < ActiveRecord::Base
     Crawls.where("region = ?", region.to_s).count
   end
 
-  def self.tweet_pruner
+  def self.tweet_pruner(testing)
     while(true) do
       Crawls.destroy_all(['updated_at < ?', 2.hours.ago])
+      if(testing) then break end
       sleep 60
     end
   end
@@ -58,13 +59,12 @@ class Crawls < ActiveRecord::Base
     client.on_limit do |messg|
         puts region+" limit: "+messg.to_s
     end
-    if(!test) then
       client.locations(@cities[formal_region][0],@cities[formal_region][1],@cities[formal_region][2],@cities[formal_region][3]) do |status|
         puts region
         puts status.text
         Crawls.create :region => region, :tweet => status.text
+        if(test) then break end
       end
-    end
   end
 
   def self.cities
