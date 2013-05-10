@@ -1,13 +1,17 @@
 <% if(@word1_num_chi > @word2_num_chi) then %>
+      alert("1");
       setMarker("Chicago","<%= escape_javascript(@color1) %>");
 <% else %>
       setMarker("Chicago","<%= escape_javascript(@color2) %>"); 
+      alert("2");
 <% end %>
 
 <% if(@word1_num_ny > @word2_num_ny) then %>
       setMarker("New York","<%= escape_javascript(@color1) %>");
+      alert("1");
 <% else %>
       setMarker("New York","<%= escape_javascript(@color2) %>");
+      alert("2");
 <% end %>
  
 $("#Chicago_tweet_info").html('<%= escape_javascript(@word1_tweets_chi.to_s) %>')
