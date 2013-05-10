@@ -1,43 +1,42 @@
 <%= javascript_include_tag :defaults, "http://maps.googleapis.com/maps/api/js?key=AIzaSyDuo9cl4VfzJYyTvkf37Y1102nzawHXSfI&sensor=false" %>
+<%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+<%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
 <p>Note: The following is the "params" hash, just a test for development purposes, to make sure that the form submission data is successfully received. You can fill out the form, and click the "Submit" button to see the params.</p>
 <%= params.inspect %>
 <div id="content">
 <h1 class="center">Welcome to Twitter Crawl!</h1>
 <h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
-<h3 id="tweety"><%= if !@tweet.nil? then @tweet end %> </h3>
 <h4>Currently tracking <%= @word1 %> and <%= @word2 %></h4>
 <div id="mapDiv" style="width: 200; height: 100"></div>
 <br />
 <br />
-<form action="/crawls" method="get">
-	<table border="0" cellpadding="3">
+
+<table border="0" cellpadding="3">
+
+<%= form_tag 'crawls/index', :remote => true do -%>
 		<tr>
-			<td><input type="textbox" width="20" name="word1" value="happy" /></td>
-			<td><input type="textbox" width="20" name="word2" value="sad" /></td>
+      <td><%= text_field_tag('word1', "happy", :size => 20) %> </td>
+			<td><%= text_field_tag('word2', "sad", :size => 20) %> </td>
 		</tr>
 		<tr>
 			<td>
-				<select name="color1">
-				  <option value="red">red</option>
-				  <option value="yellow">yellow</option>
-				  <option value="green">green</option>
-				</select> 
+        <%= select_tag "color1", "<option selected='selected'>Red</option><option>Green</option><option>Blue</option>".html_safe %>
 			</td>
 			<td>
-				<select name="color2">
-				  <option value="blue">blue</option>
-				  <option value="purple">purple</option>
-				  <option value="gray">gray</option>
-				</select> 
+        <%= select_tag "color2", "<option>Red</option><option>Green</option><option selected='selected'>Blue</option>".html_safe %>
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Track" /></td>
-			<td><input type="reset" value="Reset" /></td>
+			<td><%= submit_tag "submit" %></td>
+			<td></td>
 		</tr>
+    <% end -%>
 	</table>
-</form>
 <br />
+chitown stuff:<br/>
+<div id="Chicago, IL tweet_info"></div>
+ny stuff:<br/>
+<div id="New York, NY tweet_info"></div>
 <br />
 <!--  -->
 <!-- if the user clicks on one of the "pins" on the map, then the following section will display
@@ -47,9 +46,8 @@
 <p>There are <%= "####" %> tweets in the area you selected.</p>
 <br />
 <p>The following are the top keywords among the tweets from the area you selected.</p>
-<%=  %>
 <br />
 <p><%= "####" %>tweets contain the keyword that you are tracking from the area you selected.</p>
 <br />
 </div>
-<div id="cities" style="visibility: hidden"> <%= @cities %> </div>
+<div id="cities" > <%= @cities %> </div>

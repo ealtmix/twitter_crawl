@@ -14,12 +14,8 @@ $(document).ready(
       map = new google.maps.Map(document.getElementById("mapDiv"),
           mapOptions);
       
-      var cities = document.getElementById("cities").innerHTML
-      cities = cities.split("\", \"")
-      for(var i = 0; i < cities.length; i++)
-      {
-        setMarker(cities.pop())
-      }
+      setMarker("Chicago");
+      setMarker("New York City");
     }
 
     //define the set marker function

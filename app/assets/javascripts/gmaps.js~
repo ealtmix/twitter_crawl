@@ -15,10 +15,11 @@ $(document).ready(
           mapOptions);
       
       var cities = document.getElementById("cities").innerHTML
-      cities = cities.split("\", \"")
-      for(var i = 0; i < cities.length; i++)
+      cities = cities.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+      alert(cities)
+      for(var i = 0; i <= cities.length; i++)
       {
-        setMarker(cities.pop())
+        alert(cities.pop())
       }
     }
 
