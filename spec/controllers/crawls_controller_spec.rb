@@ -2,22 +2,16 @@ require 'spec_helper'
 require 'tweetstream'
 
 describe CrawlsController do
-  describe 'Viewing Tweets:' do
+  describe 'Viewing the main map:' do
     it 'should call the get_region_stats method' do
-      Crawls.should_receive(:get_region_stats)
+      Crawls.should_receive(:get_region_stats).at_least(1).times
+      get :index
+    end
+    it 'should call the cities method' do
+      Crawls.should_receive(:cities)
       get :index
     end
   end
-<<<<<<< HEAD
-
-  describe 'Partial Tweets:' do
-    it 'should respond to partial tweets' do
-      get :_tweet_partial
-    end
-  end
-
-=======
->>>>>>> bd6aa42920f11716283af9f5993e00c19ab6678c
 end
 
 

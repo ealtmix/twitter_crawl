@@ -1,9 +1,4 @@
 class Crawls < ActiveRecord::Base
-#  require 'tweetstream'
-#  require 'rubygems'
-  require 'twitter'
-  @tweet_array = nil
-  @cities = Hash.new
   @cities={"Chicago, IL" => [-88.210602,41.553811,-87.400360,42.259016],
 # "Atlanta, GA" => [-84.541855,33.605470,-84.092789,34.018518],
            "New York, NY" => [-74.509277,40.283811,-73.664703,41.957086]}
@@ -14,7 +9,6 @@ class Crawls < ActiveRecord::Base
 #          "Seattle, WA" => [-125.529785,47.129951,-120.563965,49.696062]}
   def self.get_region_stats(word,region)
     Crawls.select(:tweet).where("region = ? AND tweet LIKE ?",region.to_s, '% '+word.to_s+' %')
-    
   end
 
   def self.tweet_pruner
@@ -33,16 +27,16 @@ class Crawls < ActiveRecord::Base
 #Texas: -99.777832,28.883160,-94.240723,33.504759
 #San Francisco: -123.042755,37.302460,-121.828766,38.195022
 
-  def self.farm(region)
+  def self.farm(formal_region, test)
     TweetStream.configure do |config|
-	    if(1 == 2) then
-        config.consumer_key       = 'vodV1JZIlq0GjXz5I2Wg'
-  	    config.consumer_secret    = 'Z3wKtYy0kjiKhbPRF1PbDWylDFoOr6HarMR5XqxzWg'
+	    if((formal_region <=> "New York, NY")==0) then
+        config.consumer_key       = 'ZneZXyg6wdi3qo5ykwF76g'
+  	    config.consumer_secret    = 'tfTLvYq0vG5E3EtSKl48rhYrT71pxhwdZREMfEFtYw'
   	    config.oauth_token        = '1336836626-4VqaDyXbic4h1mf6R6KDmnSg6ioKEPbBed5StJQ'
   	    config.oauth_token_secret = 'YxXHb7vC1MTXHw3A1hKCTThSmmDBdAISCYTuRukSaA'
   	    config.auth_method        = :oauth
       end
-      if(1 == 1) then
+      if((formal_region <=> "Chicago, IL")==0) then
         config.consumer_key       = '5OmFa8Q9WdwgQZvgDU6UQw'
         config.consumer_secret    = 'UVhqq9IA9JzAZVQ16hfnFNwvtZv938CyocXD4p2WfA0'
         config.oauth_token        = '226011159-IcjiDKMb9iTQRNEyclshX3kVicnKePgUS9aNrVRS'
@@ -50,6 +44,7 @@ class Crawls < ActiveRecord::Base
         config.auth_method        = :oauth
       end
 	  end
+    region = formal_region.to_s.rpartition(',')[0].strip
     client = TweetStream::Client.new
     client.on_error do |error|
         puts error.to_s
@@ -57,10 +52,12 @@ class Crawls < ActiveRecord::Base
     client.on_limit do |messg|
         puts region+" limit: "+messg.to_s
     end
-    client.locations(@cities[region][0],@cities[region][1],@cities[region][2],@cities[region][3]) do |status|
-      puts region
-      puts status.text
-      Crawls.create :region => region, :tweet => status.text
+    if(!test) then
+      client.locations(@cities[formal_region][0],@cities[formal_region][1],@cities[formal_region][2],@cities[formal_region][3]) do |status|
+        puts region
+        puts status.text
+        Crawls.create :region => region, :tweet => status.text
+      end
     end
   end
 

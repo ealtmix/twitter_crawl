@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-<<<<<<< HEAD
-describe CrawlsModel do
-  describe 'Change keyword:' do
-    it 'should call the change_key_word method' do
-      Crawls.should_receive(:tweet_pruner)
-    end
-=======
 describe Crawls do
-  it 'should return a hash of tweets from the get_region_stats method' do
+  it 'should return information string from the get_region_stats method' do
     Crawls.create(:region => 'NewYork', :tweet => 'tweet')
-    Crawls.get_region_stats('tweet','NewYork').is_a?(Hash)
->>>>>>> bd6aa42920f11716283af9f5993e00c19ab6678c
+    Crawls.get_region_stats('tweet','NewYork').is_a?(String)
+  end
+  it 'should return a hash from the cities method' do
+    Crawls.cities.is_a?(Hash)
+  end
+
+  it 'should return nil from the farm method' do
+    Crawls.farm("Chicago, IL", true).nil?
+    Crawls.farm("New York, NY", true).nil?
   end
 end
