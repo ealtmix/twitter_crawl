@@ -1,14 +1,7 @@
 class Crawls < ActiveRecord::Base
-<<<<<<< HEAD
-#  require 'tweetstream'
-#  require 'rubygems'
-  require 'twitter'
-  @tweet_array = nil
-  @cities = Hash.new
+
   @cities={"Chicago" => [-88.210602,41.553811,-87.400360,42.259016],
-=======
-  @cities={"Chicago, IL" => [-88.210602,41.553811,-87.400360,42.259016],
->>>>>>> 23c93a1e88c0bf514c0a5993f7aa5ab36db56e26
+
 # "Atlanta, GA" => [-84.541855,33.605470,-84.092789,34.018518],
            "New York City" => [-74.509277,40.283811,-73.664703,41.957086]}
 #          "San Francisco, CA" => [-123.042755,37.302460,-121.828766,38.195022],

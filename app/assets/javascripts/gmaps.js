@@ -15,7 +15,7 @@ $(document).ready(
           mapOptions);
       
       setMarker("Chicago");
-      setMarker("New York City");
+      setMarker("New York");
     }
 
     //define the set marker function
@@ -37,24 +37,18 @@ $(document).ready(
     }
 
     createInfoWindow = function(marker,city){
+      city = city.replace(/ /g,"_");
       var infoWindow = new google.maps.InfoWindow({
-        content: "<div id='" + city + " window' ></div>"
+        content: "<div id='" + city + "_window' ></div>"
       });
       
-      google.maps.event.addListener(marker, 'click', function() {
-        if(infoWindow)
-						infoWindow.close();
-    
-        //update the content of the window
-        updateWindow(city); 
-        
+      google.maps.event.addListener(marker, 'click', function() {  
         //opne the info window
+        
+        infoWindow.setContent(document.getElementById(city + "_tweet_info").innerHTML);
         infoWindow.open(map,marker);
-      });
-    }
 
-    updateWindow = function(city){
-      document.getElementById(city + " window").innerHTML = document.getElementById(city + " tweet_info");
+      });
     }
 
     //call the initialization function

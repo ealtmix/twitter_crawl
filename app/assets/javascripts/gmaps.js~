@@ -14,13 +14,8 @@ $(document).ready(
       map = new google.maps.Map(document.getElementById("mapDiv"),
           mapOptions);
       
-      var cities = document.getElementById("cities").innerHTML
-      cities = cities.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
-      alert(cities)
-      for(var i = 0; i <= cities.length; i++)
-      {
-        alert(cities.pop())
-      }
+      setMarker("Chicago");
+      setMarker("New York");
     }
 
     //define the set marker function
@@ -42,24 +37,22 @@ $(document).ready(
     }
 
     createInfoWindow = function(marker,city){
+      city = city.replace(/ /g,"_");
       var infoWindow = new google.maps.InfoWindow({
-        content: "<div id='" + city + " window' ></div>"
+        content: "<div id='" + city + "_window' ></div>"
       });
       
-      google.maps.event.addListener(marker, 'click', function() {
-        if(infoWindow)
-						infoWindow.close();
-    
-        //update the content of the window
-        updateWindow(city); 
-        
+      google.maps.event.addListener(marker, 'click', function() {  
         //opne the info window
         infoWindow.open(map,marker);
+
+        //update the content of the window
+        updateWindow(city); 
       });
     }
 
     updateWindow = function(city){
-      document.getElementById(city + " window").innerHTML = document.getElementById(city + " tweet_info");
+      document.getElementById("Chicago_window").innerHTML = document.getElementById(city + "_tweet_info").innerHTML;
     }
 
     //call the initialization function
