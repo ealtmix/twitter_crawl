@@ -38,11 +38,12 @@ When(/^I choose "(.*?)" for the color of the second keyword$/) do |color|
 end
 
 Then(/^I should see the pin at "(.*?)" is "(.*?)"$/) do |city, color|
-  result=false
-  if params[marker_colors][city] == color
-     result=true
+  if(city <=> "New York") == 0 then
+    page.find_by_id("New_York_tweet_color").has_content?(color)
   end
-  assert result
+  if(city <=> "Chicago") == 0 then
+    page.find_by_id("Chicago_tweet_color").has_content?(color)
+  end
 end
 
 

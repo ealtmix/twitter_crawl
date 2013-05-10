@@ -33,9 +33,6 @@
     <% end -%>
 	</table>
 <br/>
-<!--  -->
-<!-- if the user clicks on one of the "pins" on the map, then the following section will display
-	statistics from that area marked by the pin -->
 <h3>Simple Statistics</h3>
 
 <p>In the last two hours there have been <span id='ny_count' color='red'><%= @ny_count.to_s %></span> tweets New York, and <span id='chi_count' ><%= @chi_count.to_s  %></span> tweets in Chicago</p>
@@ -44,6 +41,8 @@
 <span style="visibility: hidden" id="Chicago_tweet_info"></span>
 <span style="visibility: hidden" id="New_York_tweet_info"></span>
 <span style="visibility: hidden" id="hidden_span_for_Yi"></span>
+<span style="visibility: hidden" id="Chicago_tweet_color"><%= if @chicago_1.count > @chicago_2.count then @color1.to_s else @color2.to_s end %></span>
+<span style="visibility: hidden" id="New_York_tweet_color"><%= if @newyork_1.count > @newyork_2.count then @color1.to_s else @color2.to_s end %></span>
 </div>
 
 

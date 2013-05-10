@@ -1,13 +1,17 @@
 <% if(@word1_num_chi > @word2_num_chi) then %>
-      setMarker("Chicago","<%= escape_javascript(@color1) %>");
+      setMarker("Chicago","<%= escape_javascript(@color1) %>")
+      $("#Chicago_tweet_color").html('<%= escape_javascript(@color1) %>')
 <% else %>
-      setMarker("Chicago","<%= escape_javascript(@color2) %>"); 
+      setMarker("Chicago","<%= escape_javascript(@color2) %>") 
+      $("#Chicago_tweet_color").html('<%= escape_javascript(@color2) %>')
 <% end %>
 
 <% if(@word1_num_ny > @word2_num_ny) then %>
-      setMarker("New York","<%= escape_javascript(@color1) %>");
+      setMarker("New York","<%= escape_javascript(@color1) %>")
+      $("#New_York_tweet_color").html('<%= escape_javascript(@color1) %>')
 <% else %>
-      setMarker("New York","<%= escape_javascript(@color2) %>");
+      setMarker("New York","<%= escape_javascript(@color2) %>")
+      $("#New_York_tweet_color").html('<%= escape_javascript(@color2) %>')
 <% end %>
  
 $("#Chicago_tweet_info").html('<%= escape_javascript(@word1_tweets_chi.to_s) %>')

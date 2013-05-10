@@ -11,6 +11,10 @@ describe CrawlsController do
       Crawls.should_receive(:cities)
       get :index
     end
+    it 'should call the get_region_count method' do
+      Crawls.should_receive(:get_region_count).at_least(1).times
+      get :index
+    end
   end
 end
 

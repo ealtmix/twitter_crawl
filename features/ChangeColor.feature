@@ -21,8 +21,8 @@ Scenario: Change pin color
 
  Given I am on the TwitterCrawler home page
  And I search for "happy" and "sad" 
- When I choose "Red" for the color of the first keyword
- And I choose "Blue" for the color of the second keyword
+ When I choose "red" for the color of the first keyword
+ And I choose "blue" for the color of the second keyword
  Then I should see the pin at "New York" is "Blue"
  And I should see the pin at "Chicago" is "Red"
  
