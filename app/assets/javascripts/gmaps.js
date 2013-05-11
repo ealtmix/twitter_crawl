@@ -32,7 +32,7 @@ $(document).ready(
           icon: '/assets/' + color + '_MarkerA.png'
         });
 
-        createInfoWindow(marker,city)
+        createInfoWindow(marker,city);
         markers.push(marker);
       });
     }
@@ -53,6 +53,6 @@ $(document).ready(
     }
 
     //call the initialization function
-    init()
+    init();
   }
 );
