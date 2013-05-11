@@ -1,4 +1,6 @@
 <%= javascript_include_tag :defaults, "http://maps.googleapis.com/maps/api/js?key=AIzaSyDuo9cl4VfzJYyTvkf37Y1102nzawHXSfI&sensor=false" %>
+<%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+<%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
 <div id="content">
 <h1 class="center">Welcome to Twitter Crawl!</h1>
 <h3 class="center">Welcome! This site allows you to view people's tweets by different geographic locations. It also provides other options for you to customize your search results. Have fun!!</h3>
